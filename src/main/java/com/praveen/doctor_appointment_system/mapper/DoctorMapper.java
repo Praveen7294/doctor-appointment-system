@@ -2,13 +2,16 @@ package com.praveen.doctor_appointment_system.mapper;
 
 import com.praveen.doctor_appointment_system.dto.DoctorRequestDTO;
 import com.praveen.doctor_appointment_system.dto.DoctorResponseDTO;
+import com.praveen.doctor_appointment_system.dto.DoctorSummaryResponseDTO;
 import com.praveen.doctor_appointment_system.entity.Doctor;
+import com.praveen.doctor_appointment_system.entity.User;
 
 public class DoctorMapper {
 
-    public static Doctor toEntity(DoctorRequestDTO doctorRequestDTO) {
+    public static Doctor toEntity(DoctorRequestDTO doctorRequestDTO, User user) {
         Doctor doctor = new Doctor();
 
+        doctor.setUser(user);
         doctor.setName(doctorRequestDTO.getName());
         doctor.setSpecialization(doctorRequestDTO.getSpecialization());
         doctor.setAvailableDays(doctorRequestDTO.getAvailableDays());
@@ -38,5 +41,16 @@ public class DoctorMapper {
         doctorResponseDTO.setManualSlotLimit(doctor.getManualSlotLimit());
 
         return doctorResponseDTO;
+    }
+
+    public static DoctorSummaryResponseDTO toSummaryDto(Doctor doctor) {
+
+        DoctorSummaryResponseDTO response = new DoctorSummaryResponseDTO();
+        response.setDoctorId(doctor.getId());
+        response.setName(doctor.getName());
+        response.setSpecialization(doctor.getSpecialization());
+        response.setAvailableDays(doctor.getAvailableDays());
+
+        return response;
     }
 }
