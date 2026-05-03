@@ -3,11 +3,8 @@ package com.praveen.doctor_appointment_system.dto;
 import com.praveen.doctor_appointment_system.entity.Gender;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
-public class PatientResponseDTO {
-
-    private UUID id;
+public class PatientUpdateRequestDTO {
 
     private String phoneNumber;
 
@@ -18,14 +15,6 @@ public class PatientResponseDTO {
     private Gender gender;
 
     private String address;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
