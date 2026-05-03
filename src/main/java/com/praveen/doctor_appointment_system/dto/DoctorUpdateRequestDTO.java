@@ -1,36 +1,24 @@
 package com.praveen.doctor_appointment_system.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.Set;
 
-public class DoctorRequestDTO {
-
-    @NotBlank(message = "Name is required")
+public class DoctorUpdateRequestDTO {
     private String name;
 
     private String specialization;
 
-    @NotEmpty(message = "Available Days are required")
     private Set<DayOfWeek> availableDays;
 
-    @NotNull(message = "Weekly Off day is required")
     private DayOfWeek weeklyOff;
 
-    @NotNull(message = "Start time is required")
     private LocalTime startTime;
 
-    @NotNull(message = "End time is required")
     private LocalTime endTime;
 
-    @NotNull(message = "SlotDurationMinutes is required")
     private Integer slotDurationMinutes;
 
-    @NotNull(message = "use manual slot limit is required")
     private Boolean useManualSlotLimit;
 
     private Integer manualSlotLimit;
